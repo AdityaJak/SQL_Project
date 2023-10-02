@@ -1,0 +1,27 @@
+/*Adithya_jakkaraju*/
+SELECT * FROM VISIT;
+
+SELECT I.Name
+FROM INSURER I, PHY_INSURER PHI, PHYSICIAN P
+WHERE P.Name = 'Scarlet' 
+AND P.PID = PHI.PID 
+AND PHI.InsurerId = I.InsurerId;
+
+SELECT DISTINCT V.Date_, P.Name, V.PCP_or_not, V.Diagnosis
+FROM VISIT V, PHYSICIAN P, PERSON PER
+WHERE PER.Name = 'Emma' 
+AND (V.Date_ >= '2022-01-01' AND V.Date_ <= '2022-03-31')
+AND V.SSN = PER.SSN 
+AND V.PID = P.PID;
+
+SELECT I.Name
+FROM INSURER I, EMP_INSURER EMI, EMPLOYER E
+WHERE E.Name = 'CVS'
+AND EMI.InsurerId = I.InsurerId
+AND E.EmpId = EMI.EmpId;
+
+SELECT C.CID
+FROM CLAIM C, PHYSICIAN P
+WHERE P.Name = 'Dan'
+AND C.Paid_date IS NULL 
+AND C.PID = P.PID;
